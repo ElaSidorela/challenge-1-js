@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Challenge 1</title>
+  </head>
+  <body>
+
+    <!-- //ushtrimi 1 -->
+
+    <p>Array Transformation</p>
+    <script>
+    
+    function transformArray(array) {
+      const transformedArray = [];
+
+        for (let i = 0; i < array.length; i++) {
+          const currentElement = array[i];
+          transformedArray[i] =
+            currentElement < 10 ? currentElement * 2 : currentElement * 4;
+        }
+        return transformedArray;
+      }
+
+      const inputArray = [1, 5, 10, 11, 20, 34];
+      const resultArray = transformArray(inputArray);
+      console.log(resultArray);
+    </script>
+
+     <!-- ushtrimi 2 -->
+
+     <div>
+        <p>Your password is: <span id="password"></span></p>
+        <p id="message"></p>
+      </div>
+
+      <script>
+        function validatePassword(password) {
+          let hasNumber = false;
+          let hasUppercase = false;
+  
+          for (let i = 0; i < password.length; i++) {
+            const char = password[i];
+            if (char >= '0' && char <= '9') {
+              hasNumber = true;
+            } else if (char >= 'A' && char <= 'Z') {
+              hasUppercase = true;
+            }
+          }
+  
+          if (password.length < 8) {
+            return 'The length of your password should be at least 8 characters long!';
+          }
+          else if (!hasNumber || !hasUppercase) {
+            return 'Your password should include at least one number and one uppercase letter.';
+          }
+          else {
+            return 'Your password is valid!';
+          }
+        }
+  
+        const password = prompt('Enter your password for validation: ');
+        document.getElementById('password').innerHTML = password;
+        const message = validatePassword(password);
+        document.getElementById('message').innerText = message;
+
+      </script>
+  </body>
+</html>
